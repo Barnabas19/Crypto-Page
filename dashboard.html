@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>User Dashboard</title>
     <link rel="Stylesheet" href="./css/dashboard.css"/>
 </head>
 <body>
     <div class="wrapper">
+        <div class="toggle-btn" onclick="toggleSidebar()">
+            <span class="span"></span>
+            <span class="span"></span>
+            <span class="span"></span>
+        </div>
         <aside class="aside-left">
             <ul class="aside-left__list">
                 <li class="aside-left__list__item" onclick="location.href='';"><span>icon</span>Overview</li>
@@ -64,8 +69,14 @@
             <section class="aside-right__section1"></section>
             <section class="aside-right__section2">
                 <h2 class="aside-right__section2__heading">Recommended Articles</h2>
+                <section class="caption">
+                    <img src="img/crypto.jpeg" alt="image" />
+                    <span><i>Ijaola David</i> - Nov 20, 2020</span>
+                    <p>Got Crypto? Read free guide to investing.</p>
+                </section>
             </section>
         </aside>
     </div>
+    <script src="./js/dashboard.js"></script>
 </body>
 </html>

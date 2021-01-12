@@ -1,4 +1,4 @@
-/* DEFAULTS */
+/* BORDER-BOX DECLARATION, ETC */
 html,
 *,
 *:before,
@@ -13,8 +13,7 @@ html,
     -moz-osx-font-smoothing: grayscale;
 }
 
-
-/* MOBILE */
+/* DEFAULT STYLES */
 .wrapper{
     width: 100%;
     background: rgb(241, 239, 239);
@@ -22,6 +21,9 @@ html,
     flex-flow: row wrap;
     align-items: stretch;
     padding-bottom: 20px;
+    .toggle-btn{
+        display: none;
+    }
     .aside-left{
         flex: 40% 0 0;
         background: white;
@@ -34,6 +36,7 @@ html,
                 font-size: 13px;
                 font-weight: 500;
                 opacity: 0.6;
+                list-style-type: none;
                 cursor: default;
             }
             &__item:first-child{
@@ -95,6 +98,7 @@ html,
                 margin-right: 4%;
                 margin-left: 0;
                 background: white;
+                box-shadow: 4px 4px 10px rgb(66, 66, 66);
             }
         }
         &__section3{
@@ -176,30 +180,95 @@ html,
         &__section1{
             flex: 50%  0 0;
             margin-left: 2%;
-            height: 200px;
+            height: 400px;
             background: white;
             border-left: 5px solid purple;
+            box-shadow: 0 4px 6px rgb(66, 66, 66);
             margin-top: 5px;
         }
         &__section2{
             flex: 44% 0 0;
             margin-left: 2%;
-            height: 100px;
-            background: white;
+            background: rgb(241, 239, 239);
             margin-top: 50px;
+            padding-bottom: 5px;
             &__heading{
                 width: 100%;
-                text-align: left;
+                text-align: center;
                 color: purple;
-                background: rgb(241, 239, 239);
-                font-size: 13px;
+                font-size: 16px;
+                font-weight: 550;
+            }
+            .caption{
+                width: 100%;
+                background: white;
+                box-shadow: 4px 4px 10px rgb(66, 66, 66);
+                padding-bottom: 5px;
+                margin-top: 12px;
+                img{
+                    width: 93%;
+                    height: 100px;
+                    margin: 10px 3.5% 0 3.5%;
+                }
+                span{
+                    color: purple;
+                    font-size: 13px;
+                    margin-left: 3.5%;
+                    i{
+                        font-weight: 550;
+                    }
+                }
+                p{
+                    font-size: 18px;
+                    font-weight: 600;
+                    margin-left: 3.5%;
+                    margin-top: 5px;
+                }
             }
         }
     }
 }
 
+/* MODIFICATIONS FOR SMALLER SCREENS */
+@media only screen and (max-width: 779px){
+    .wrapper{
+        .toggle-btn{
+            display: block;
+            flex: 10% 0 0;
+            padding-top: 5px;
+            .span{
+                display: block;
+                width: 30px;
+                height: 5px;
+                background: purple;
+                margin-top: 5px;
+                border-radius: 2px;
+            }
+            .span:first-child{
+                margin-top: 45px;
+            }
+            .span.active{
+                background: black;
+            }
+        }
+        .aside-left{
+            position: absolute;
+            left: -100px;
+        }
+        .aside-left.active{
+            position: static;
+            left: 0px;
+        }
+        .main{
+            flex: 90% 0 0;
+        }
+        .main.active{
+            flex: 50% 0 0;
+        }
+    }
+}
 
-/* DESKTOP */
+/* MODIFICATIONS FOR LARGER SCREENS */
 @media only screen and (min-width: 780px){
     .wrapper{
         width: 100%;
@@ -286,12 +355,64 @@ html,
                     color: purple;
                     font-size: 13px;
                     text-align: left;
+                    margin-top: 50px;
                 }
                 &__section{
                     width: 100%;
                     border-left: 5px solid purple;
                     background: white;
-                    height: 350px;
+                    .row{
+                        width: 100%;
+                        min-height: 50px;
+                        margin-top: 35px;
+                        margin-bottom: 0;
+                        display: flex;
+                        flex-flow: row wrap;
+                        align-items: stretch;
+                        justify-content: space-evenly;
+                        .div{
+                            flex: 20% 0 0;
+                            height: 100%;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            background: white;
+                            .text{
+                                flex: 80% 0 0;
+                                text-align: center;
+                                font-size: 14px;
+                                padding: 3px;
+                                font-weight: 700;
+                                opacity: 0.7;
+                                margin: 10px 10% 10px 10%;
+                            }
+                        }
+                        .div:first-child{
+                            background: rgb(241, 239, 239);
+                            border-radius: 3px;
+                            color: purple;
+                            .text{
+                                opacity: 1.0;
+                            }
+                        }
+                        .div:nth-child(2),
+                        .div:nth-child(3),
+                        .div:nth-child(4){
+                            padding-top: 5px;
+                        }
+                        .div:nth-child(4){
+                            color: rgb(48, 190, 5);
+                            .text{
+                                opacity: 1.0;
+                            }
+                        }
+                    }
+                    .row:first-child{
+                        margin-top: 14px;
+                    }
+                    .row:last-child{
+                        margin-bottom: 14px;
+                    }
                 }
             }
         }
@@ -321,15 +442,30 @@ html,
                 flex: 90% 0 0;
                 margin-left: 2%;
                 margin-right: 8%;
-                height: 180px;
-                background: white;
                 margin-top: 20px;
                 &__heading{
                     width: 100%;
-                    text-align: left;
                     color: purple;
-                    background: rgb(241, 239, 239);
-                    font-size: 13px;
+                    margin-top: 20px;
+                }
+                .caption{
+                    width: 80%;
+                    padding-bottom: 5px;
+                    margin: 12px 10% 0 10%;
+                    img{
+                        width: 93%;
+                        height: 150px;
+                        margin: 10px 3.5% 0 3.5%;
+                    }
+                    span{
+                        margin-left: 3.5%;
+                        i{
+                            font-weight: 550;
+                        }
+                    }
+                    p{
+                        margin-top: 15px;
+                    }
                 }
             }
         }
